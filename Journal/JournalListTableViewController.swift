@@ -8,8 +8,12 @@
 
 import UIKit
 
-class JournalListTableViewController: UITableViewController {
+class JournalListTableViewController: UITableViewController, UITextFieldDelegate {
 
+    var journalIndexPath: NSIndexPath?
+    var previousTitle: String?
+    var saveAction: UIAlertAction?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,10 +65,54 @@ class JournalListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView.editing {
-            performSegueWithIdentifier("editJournal", sender: nil)
+            let journal = JournalController.sharedController.journals[indexPath.row]
+            previousTitle = journal.title
+            
+            let alert = UIAlertController(title: "Change Title", message: nil, preferredStyle: .Alert)
+            
+            // Cancel Alert
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            
+            // Save Journal Title
+            alert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0]
+                if textField.text != journal.title {
+                    journal.title = textField.text ?? ""
+                    JournalController.sharedController.journals[indexPath.row] = journal
+                    JournalController.sharedController.saveJournals()
+                    tableView.reloadData()
+                }
+            }))
+            
+            saveAction = alert.actions[1]
+            
+            alert.addTextFieldWithConfigurationHandler({(textField) -> Void in
+                textField.text = journal.title
+                textField.delegate = self
+            })
+            
+            
+            
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
 
+    
+    // MARK: - TextFieldDelegate 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField.text != previousTitle {
+            saveAction?.enabled = true
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        saveAction?.enabled = false
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -81,13 +129,6 @@ class JournalListTableViewController: UITableViewController {
             }
         } else if segue.identifier == "addJournal" {
             // do nothing 
-        } else if segue.identifier == "editJournal" {
-            let addJournalViewController = segue.destinationViewController as! AddJournalViewController
-            if let selectedCell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(selectedCell) {
-                let selectedJournal = JournalController.sharedController.journals[indexPath.row]
-                addJournalViewController.journal = selectedJournal
-            }
-            
         }
     }
     
@@ -118,9 +159,6 @@ class JournalListTableViewController: UITableViewController {
             JournalController.sharedController.saveJournals()
         }
     }
-    
- 
-
 }
 
 

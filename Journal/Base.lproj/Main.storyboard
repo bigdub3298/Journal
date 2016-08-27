@@ -208,9 +208,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="kcO-xv-UwJ" kind="show" identifier="editJournal" id="E89-Xg-232"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCV-3A-iCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,7 +354,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="c0I-ra-W6a"/>
-        <segue reference="E89-Xg-232"/>
+        <segue reference="Ovv-EW-qgq"/>
         <segue reference="Jju-NY-MYl"/>
     </inferredMetricsTieBreakers>
 </document>
