@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		CF238D951D68DB9200BE3152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238D941D68DB9200BE3152 /* AppDelegate.swift */; };
-		CF238D971D68DB9200BE3152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238D961D68DB9200BE3152 /* ViewController.swift */; };
 		CF238D9A1D68DB9200BE3152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF238D981D68DB9200BE3152 /* Main.storyboard */; };
 		CF238D9C1D68DB9200BE3152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF238D9B1D68DB9200BE3152 /* Assets.xcassets */; };
 		CF238D9F1D68DB9200BE3152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF238D9D1D68DB9200BE3152 /* LaunchScreen.storyboard */; };
 		CF238DAA1D68DB9200BE3152 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238DA91D68DB9200BE3152 /* JournalTests.swift */; };
+		CF238DB51D68DBAC00BE3152 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238DB41D68DBAC00BE3152 /* Entry.swift */; };
+		CF8F62281D6BEB9A009842EC /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */; };
+		CF8F622A1D6BF438009842EC /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */; };
+		CFF38F2E1D6D3E4F00ADA4B7 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */; };
+		CFF38F301D6D3F5400ADA4B7 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */; };
+		CFF38F321D6D456100ADA4B7 /* JournalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */; };
+		CFF38F341D6D807C00ADA4B7 /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F331D6D807C00ADA4B7 /* AddJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +34,6 @@
 /* Begin PBXFileReference section */
 		CF238D911D68DB9200BE3152 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF238D941D68DB9200BE3152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF238D961D68DB9200BE3152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF238D991D68DB9200BE3152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF238D9B1D68DB9200BE3152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF238D9E1D68DB9200BE3152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,13 @@
 		CF238DA51D68DB9200BE3152 /* JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF238DA91D68DB9200BE3152 /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
 		CF238DAB1D68DB9200BE3152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF238DB41D68DBAC00BE3152 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
+		CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
+		CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalListTableViewController.swift; sourceTree = "<group>"; };
+		CFF38F331D6D807C00ADA4B7 /* AddJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				CF238D941D68DB9200BE3152 /* AppDelegate.swift */,
-				CF238D961D68DB9200BE3152 /* ViewController.swift */,
 				CF238D981D68DB9200BE3152 /* Main.storyboard */,
+				CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */,
+				CFF38F331D6D807C00ADA4B7 /* AddJournalViewController.swift */,
+				CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */,
+				CF238DB41D68DBAC00BE3152 /* Entry.swift */,
 				CF238D9B1D68DB9200BE3152 /* Assets.xcassets */,
 				CF238D9D1D68DB9200BE3152 /* LaunchScreen.storyboard */,
 				CF238DA01D68DB9200BE3152 /* Info.plist */,
+				CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */,
+				CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */,
+				CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -146,6 +164,7 @@
 				TargetAttributes = {
 					CF238D901D68DB9200BE3152 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = W3D53EV83R;
 					};
 					CF238DA41D68DB9200BE3152 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -197,8 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF238D971D68DB9200BE3152 /* ViewController.swift in Sources */,
+				CF238DB51D68DBAC00BE3152 /* Entry.swift in Sources */,
+				CFF38F341D6D807C00ADA4B7 /* AddJournalViewController.swift in Sources */,
+				CF8F62281D6BEB9A009842EC /* EntryListTableViewController.swift in Sources */,
+				CFF38F301D6D3F5400ADA4B7 /* JournalController.swift in Sources */,
+				CF8F622A1D6BF438009842EC /* EntryDetailViewController.swift in Sources */,
+				CFF38F321D6D456100ADA4B7 /* JournalListTableViewController.swift in Sources */,
 				CF238D951D68DB9200BE3152 /* AppDelegate.swift in Sources */,
+				CFF38F2E1D6D3E4F00ADA4B7 /* Journal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +352,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Journal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldwidemess.Journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -338,10 +366,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Journal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.worldwidemess.Journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -388,6 +419,7 @@
 				CF238DB01D68DB9200BE3152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF238DB11D68DB9200BE3152 /* Build configuration list for PBXNativeTarget "JournalTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +428,7 @@
 				CF238DB31D68DB9200BE3152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
