@@ -17,8 +17,12 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Use edit button
         navigationItem.leftBarButtonItem = editButtonItem()
+        
+        // allow sellection of cells during editing 
         tableView.allowsSelectionDuringEditing = true
+        
         // Load saved journals
         if let savedJournals = JournalController.sharedController.loadJournals() {
             JournalController.sharedController.journals += savedJournals
@@ -76,14 +80,22 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
             // Save Journal Title
             alert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0]
+                
+                // check to see if the user has altered the title
                 if textField.text != journal.title {
+                    //check text value 
                     journal.title = textField.text ?? ""
+                    
+                    //set journal
                     JournalController.sharedController.journals[indexPath.row] = journal
+                    
+                    // save journals
                     JournalController.sharedController.saveJournals()
                     tableView.reloadData()
                 }
             }))
             
+            // set class variable
             saveAction = alert.actions[1]
             
             alert.addTextFieldWithConfigurationHandler({(textField) -> Void in
@@ -123,12 +135,15 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
             if let selectedCell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(selectedCell) {
                 // get selected Journal
                 let selectedJournal = JournalController.sharedController.journals[indexPath.row]
+                
                 // pass entry and journal indexPath to EntryListTableViewController
                 entryListTableViewController.entries = selectedJournal.entries
                 entryListTableViewController.journalIndexPath = indexPath
             }
         } else if segue.identifier == "addJournal" {
             // do nothing 
+        } else if segue.identifier == "addJournal" {
+            
         }
     }
     

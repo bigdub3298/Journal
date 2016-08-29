@@ -36,6 +36,7 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
     
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         // Hide keyboard
         titleTextField.resignFirstResponder()
         return true
