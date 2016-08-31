@@ -78,7 +78,7 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
             alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             
             // Save Journal Title
-            alert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
+            alert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (_) -> Void in
             let textField = alert.textFields![0]
                 
                 // check to see if the user has altered the title
