@@ -37,6 +37,8 @@ class EntryListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("entryCell", forIndexPath: indexPath)
         
         guard let entries = entries else {
+            cell.textLabel?.text = ""
+            cell.detailTextLabel?.text = "" 
             return cell
         }
         // grab the entry for the cell
