@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JgZ-lK-ILq">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JgZ-lK-ILq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -204,7 +204,7 @@
                     <navigationItem key="navigationItem" title="Journals" id="6ou-kP-kcV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CZI-pP-z97">
                             <connections>
-                                <segue destination="kcO-xv-UwJ" kind="show" identifier="addJournal" id="Ovv-EW-qgq"/>
+                                <action selector="addButtonTapped:" destination="Vkv-0f-OhN" id="NUA-jm-yhD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -212,72 +212,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCV-3A-iCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="846" y="86"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="uOE-zn-f28">
-            <objects>
-                <viewController id="kcO-xv-UwJ" customClass="AddJournalViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="16v-vG-tdP"/>
-                        <viewControllerLayoutGuide type="bottom" id="iqV-Ae-VpE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Xsd-aP-R4b">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMa-lj-eJO">
-                                <rect key="frame" x="20" y="141" width="126" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KA2-ol-Fzd">
-                                <rect key="frame" x="178" y="140" width="402" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GmR-GK-GMa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="KA2-ol-Fzd" firstAttribute="leading" secondItem="nMa-lj-eJO" secondAttribute="trailing" constant="32" id="14w-dd-Dj1"/>
-                            <constraint firstItem="KA2-ol-Fzd" firstAttribute="top" secondItem="16v-vG-tdP" secondAttribute="bottom" constant="76" id="6mE-Mz-pu4"/>
-                            <constraint firstItem="KA2-ol-Fzd" firstAttribute="trailing" secondItem="Xsd-aP-R4b" secondAttribute="trailingMargin" id="OzX-RN-uEi"/>
-                            <constraint firstItem="nMa-lj-eJO" firstAttribute="leading" secondItem="Xsd-aP-R4b" secondAttribute="leadingMargin" id="Qw4-zV-Xzq"/>
-                            <constraint firstItem="KA2-ol-Fzd" firstAttribute="leading" secondItem="nMa-lj-eJO" secondAttribute="trailing" constant="35" id="bEB-GB-8Gz"/>
-                            <constraint firstItem="iqV-Ae-VpE" firstAttribute="top" secondItem="KA2-ol-Fzd" secondAttribute="bottom" constant="430" id="cwA-Ff-Xda"/>
-                            <constraint firstItem="KA2-ol-Fzd" firstAttribute="top" secondItem="16v-vG-tdP" secondAttribute="bottom" constant="76" id="gfg-vb-bHb"/>
-                            <constraint firstItem="nMa-lj-eJO" firstAttribute="top" secondItem="16v-vG-tdP" secondAttribute="bottom" constant="77" id="gp9-Yk-U7M"/>
-                            <constraint firstItem="iqV-Ae-VpE" firstAttribute="top" secondItem="nMa-lj-eJO" secondAttribute="bottom" constant="432" id="qN2-8Q-Hyg"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="bEB-GB-8Gz"/>
-                                <exclude reference="gfg-vb-bHb"/>
-                                <exclude reference="cwA-Ff-Xda"/>
-                                <exclude reference="qN2-8Q-Hyg"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="4Fa-7i-6Fe">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ovg-Wf-mkL">
-                            <connections>
-                                <segue destination="F0A-kZ-z3H" kind="unwind" unwindAction="unwindToJournalListView:" id="o3p-up-XUF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="saveButton" destination="Ovg-Wf-mkL" id="coq-R2-Of4"/>
-                        <outlet property="titleBarItem" destination="4Fa-7i-6Fe" id="zJ0-om-g4o"/>
-                        <outlet property="titleTextField" destination="KA2-ol-Fzd" id="f5f-tA-0gb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wFi-Wo-cg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="F0A-kZ-z3H" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="846" y="825"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7o3-cS-WBC">
@@ -333,28 +267,9 @@
             </objects>
             <point key="canvasLocation" x="107" y="86"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Hax-nu-Yi0">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qep-2h-XRc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BC6-FN-toy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kcO-xv-UwJ" kind="relationship" relationship="rootViewController" id="3d8-g4-inL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5OO-Xw-dsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="107" y="825"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="c0I-ra-W6a"/>
-        <segue reference="Ovv-EW-qgq"/>
         <segue reference="Jju-NY-MYl"/>
     </inferredMetricsTieBreakers>
 </document>

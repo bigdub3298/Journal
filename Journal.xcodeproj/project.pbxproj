@@ -13,12 +13,12 @@
 		CF238D9F1D68DB9200BE3152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF238D9D1D68DB9200BE3152 /* LaunchScreen.storyboard */; };
 		CF238DAA1D68DB9200BE3152 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238DA91D68DB9200BE3152 /* JournalTests.swift */; };
 		CF238DB51D68DBAC00BE3152 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF238DB41D68DBAC00BE3152 /* Entry.swift */; };
+		CF7E02771DB2A5C500D85ECC /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E02761DB2A5C500D85ECC /* Stack.swift */; };
 		CF8F62281D6BEB9A009842EC /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */; };
 		CF8F622A1D6BF438009842EC /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */; };
 		CFF38F2E1D6D3E4F00ADA4B7 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */; };
 		CFF38F301D6D3F5400ADA4B7 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */; };
 		CFF38F321D6D456100ADA4B7 /* JournalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */; };
-		CFF38F341D6D807C00ADA4B7 /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F331D6D807C00ADA4B7 /* AddJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +42,12 @@
 		CF238DA91D68DB9200BE3152 /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
 		CF238DAB1D68DB9200BE3152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF238DB41D68DBAC00BE3152 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		CF7E02761DB2A5C500D85ECC /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
 		CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
 		CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalListTableViewController.swift; sourceTree = "<group>"; };
-		CFF38F331D6D807C00ADA4B7 /* AddJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,18 +89,11 @@
 		CF238D931D68DB9200BE3152 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				CF238D941D68DB9200BE3152 /* AppDelegate.swift */,
-				CF238D981D68DB9200BE3152 /* Main.storyboard */,
-				CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */,
-				CFF38F331D6D807C00ADA4B7 /* AddJournalViewController.swift */,
-				CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */,
-				CF238DB41D68DBAC00BE3152 /* Entry.swift */,
-				CF238D9B1D68DB9200BE3152 /* Assets.xcassets */,
-				CF238D9D1D68DB9200BE3152 /* LaunchScreen.storyboard */,
-				CF238DA01D68DB9200BE3152 /* Info.plist */,
-				CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */,
-				CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */,
-				CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */,
+				CF7E02731DB2906700D85ECC /* ViewControllers */,
+				CF7E02751DB2907D00D85ECC /* ModelControllers */,
+				CF7E02741DB2907300D85ECC /* ModelObjects */,
+				CF7E02711DB2903600D85ECC /* Storyboards */,
+				CF7E02721DB2904E00D85ECC /* Core */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -112,6 +105,53 @@
 				CF238DAB1D68DB9200BE3152 /* Info.plist */,
 			);
 			path = JournalTests;
+			sourceTree = "<group>";
+		};
+		CF7E02711DB2903600D85ECC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CF238D981D68DB9200BE3152 /* Main.storyboard */,
+				CF238D9D1D68DB9200BE3152 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CF7E02721DB2904E00D85ECC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CF238D941D68DB9200BE3152 /* AppDelegate.swift */,
+				CF238D9B1D68DB9200BE3152 /* Assets.xcassets */,
+				CF238DA01D68DB9200BE3152 /* Info.plist */,
+				CF7E02761DB2A5C500D85ECC /* Stack.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		CF7E02731DB2906700D85ECC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */,
+				CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */,
+				CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CF7E02741DB2907300D85ECC /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				CF238DB41D68DBAC00BE3152 /* Entry.swift */,
+				CFF38F2D1D6D3E4F00ADA4B7 /* Journal.swift */,
+			);
+			name = ModelObjects;
+			sourceTree = "<group>";
+		};
+		CF7E02751DB2907D00D85ECC /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFF38F2F1D6D3F5400ADA4B7 /* JournalController.swift */,
+			);
+			name = ModelControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,10 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF238DB51D68DBAC00BE3152 /* Entry.swift in Sources */,
-				CFF38F341D6D807C00ADA4B7 /* AddJournalViewController.swift in Sources */,
 				CF8F62281D6BEB9A009842EC /* EntryListTableViewController.swift in Sources */,
 				CFF38F301D6D3F5400ADA4B7 /* JournalController.swift in Sources */,
 				CF8F622A1D6BF438009842EC /* EntryDetailViewController.swift in Sources */,
+				CF7E02771DB2A5C500D85ECC /* Stack.swift in Sources */,
 				CFF38F321D6D456100ADA4B7 /* JournalListTableViewController.swift in Sources */,
 				CF238D951D68DB9200BE3152 /* AppDelegate.swift in Sources */,
 				CFF38F2E1D6D3E4F00ADA4B7 /* Journal.swift in Sources */,
