@@ -120,9 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				CF238D941D68DB9200BE3152 /* AppDelegate.swift */,
-				CF238D9B1D68DB9200BE3152 /* Assets.xcassets */,
-				CF238DA01D68DB9200BE3152 /* Info.plist */,
 				CF7E02761DB2A5C500D85ECC /* Stack.swift */,
+				CF238DA01D68DB9200BE3152 /* Info.plist */,
+				CF238D9B1D68DB9200BE3152 /* Assets.xcassets */,
 			);
 			name = Core;
 			sourceTree = "<group>";
