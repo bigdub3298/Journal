@@ -2,51 +2,27 @@
 //  Entry.swift
 //  Journal
 //
-//  Created by Wesley Austin on 8/20/16.
+//  Created by Wesley Austin on 10/16/16.
 //  Copyright © 2016 Wesley Austin. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-class Entry: NSObject, NSCoding {
-    var title: String
-    var bodyText: String
-    var timeStamp: NSDate
+
+class Entry: NSManagedObject {
+
+    static let className = "Entry"
     
-    init(title: String, bodyText: String, timeStamp: NSDate) {
+    convenience init(title: String, bodyText: String, timeStamp: NSDate, journal: Journal, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+        let entity = NSEntityDescription.entityForName(Entry.className, inManagedObjectContext: context)!
+        
+        self.init(entity: entity, insertIntoManagedObjectContext: context)
+        
         self.title = title
         self.bodyText = bodyText
         self.timeStamp = timeStamp
+        self.journal = journal 
     }
-    
-    // Mark: - Types
-    struct PropertyKey {
-        static let titleKey = "title"
-        static let bodyTextKey = "bodyText"
-        static let timeStampKey = "timeStamp"
-    }
-    
-    // Mark: - NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(title, forKey: PropertyKey.titleKey)
-        aCoder.encodeObject(bodyText, forKey: PropertyKey.bodyTextKey)
-        aCoder.encodeObject(timeStamp, forKey: PropertyKey.timeStampKey)
-    }
-    
-    required convenience init?(coder aCoder: NSCoder) {
-        let title = aCoder.decodeObjectForKey(PropertyKey.titleKey) as! String
-        let bodyText = aCoder.decodeObjectForKey(PropertyKey.bodyTextKey) as! String
-        let timeStamp = aCoder.decodeObjectForKey(PropertyKey.timeStampKey) as! NSDate
-        
-        self.init(title: title, bodyText: bodyText, timeStamp: timeStamp)
-        
-    }
+
 }
-
-
-// Implementation of Equatable Protocol 
-func ==(lhs: Entry, rhs: Entry) -> Bool {
-    return (lhs.title == rhs.title) && (lhs.bodyText == rhs.bodyText) && (lhs.timeStamp == lhs.timeStamp)
-}
-
-

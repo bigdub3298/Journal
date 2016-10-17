@@ -2,43 +2,24 @@
 //  Journal.swift
 //  Journal
 //
-//  Created by Wesley Austin on 8/23/16.
+//  Created by Wesley Austin on 10/16/16.
 //  Copyright © 2016 Wesley Austin. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-class Journal: NSObject, NSCoding {
+
+class Journal: NSManagedObject {
+
+    static let className = "Journal"
     
-    var entries: [Entry]
-    var title: String
-    
-    init(title: String, entries: [Entry]) {
-        self.title = title
-        self.entries = entries
-    }
-    
-    // MARK: - Types
-    struct PropertyKeys {
-        static let title = "title"
-        static let entries = "entries"
-    }
-    
-    
-    // MARK: - NSCoding 
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(title, forKey: PropertyKeys.title)
-        aCoder.encodeObject(entries, forKey: PropertyKeys.entries)
-    }
-    
-    required convenience init?(coder aCoder: NSCoder) {
-        let title = aCoder.decodeObjectForKey(PropertyKeys.title) as! String
-        let entries = aCoder.decodeObjectForKey(PropertyKeys.entries) as! [Entry]
+    convenience init(title: String, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+        let entity = NSEntityDescription.entityForName(Journal.className, inManagedObjectContext: context)!
         
-        self.init(title: title, entries: entries)
+        self.init(entity: entity, insertIntoManagedObjectContext: context)
+        
+        self.title = title
     }
-}
 
-func ==(lhs: Journal, rhs: Journal) -> Bool {
-    return lhs.title == rhs.title && lhs.entries == rhs.entries
 }
