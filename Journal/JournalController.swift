@@ -14,20 +14,20 @@ class JournalController {
     static let sharedController = JournalController()
     
     // Read
-    var entries: [Entry] {
-        let request = NSFetchRequest(entityName: Entry.className)
+    var journals: [Journal] {
+        let request = NSFetchRequest(entityName: Journal.className)
         
         let moc = Stack.sharedStack.managedObjectContext
         
         do {
-            return try moc.executeFetchRequest(request) as! [Entry]
+            return try moc.executeFetchRequest(request) as! [Journal]
         } catch {
             return []
         }
     }
     
     // Create
-    func createJournal(title: String) {
+    func addJournal(title: String) {
         let _ = Journal(title: title)
         Stack.saveToPersistentStore()
     }
@@ -38,6 +38,12 @@ class JournalController {
             moc.deleteObject(journal)
             Stack.saveToPersistentStore()
         }
+    }
+    
+    // Update 
+    func updateJournal(journal: Journal, title: String) {
+        journal.title = title
+        Stack.saveToPersistentStore()
     }
     
     // Add Entry
@@ -52,5 +58,11 @@ class JournalController {
             moc.deleteObject(entry)
             Stack.saveToPersistentStore()
         }
+    }
+    
+    func updateEntry(entry: Entry, title: String, bodyText: String) {
+        entry.title = title
+        entry.bodyText = bodyText
+        Stack.saveToPersistentStore()
     }
 }

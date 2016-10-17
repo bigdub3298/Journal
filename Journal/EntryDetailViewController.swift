@@ -20,6 +20,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     
     var entry: Entry?
+    var journal: Journal?
     
     
     override func viewDidLoad() {
@@ -76,28 +77,28 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         saveButton.enabled = !bodyText.isEmpty
     }
     
+    // MARK: - Actions 
+    
     @IBAction func clearButton(sender: AnyObject) {
         titleTextField.text = ""
         bodyTextView.text = ""
         titleBarItem.title = "Title" 
     }
 
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
-            let title = titleTextField.text ?? ""
-            let bodyText = bodyTextView.text ?? ""
-            let timeStamp = NSDate()
-            
-            entry = Entry(title: title, bodyText: bodyText, timeStamp: timeStamp)
-        }
+    @IBAction func saveButtonTapped(sender: UIBarButtonItem) {
+        let title = titleTextField.text ?? ""
+        let bodyText = bodyTextView.text ?? ""
         
+        if let entry = entry {
+            JournalController.sharedController.updateEntry(entry, title: title, bodyText: bodyText)
+        } else {
+            JournalController.sharedController.addEntryToJournal(title, bodyText: bodyText, journal: journal!)
+        }
     }
+
+
+    // MARK: - Helper funcitons 
     
-    // Update View 
     func updateWith(entry: Entry) {
         titleBarItem.title = entry.title
         titleTextField.text = entry.title

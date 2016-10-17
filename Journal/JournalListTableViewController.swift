@@ -11,7 +11,6 @@ import UIKit
 class JournalListTableViewController: UITableViewController, UITextFieldDelegate {
 
     var journalIndexPath: NSIndexPath?
-    var previousTitle: String?
     var editSaveAction: UIAlertAction?
     var addSaveAction: UIAlertAction?
     
@@ -26,12 +25,6 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
         
         editSaveAction?.enabled = false
         addSaveAction?.enabled = false
-        
-        // Load saved journals
-        if let savedJournals = JournalController.sharedController.loadJournals() {
-            JournalController.sharedController.journals += savedJournals
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,20 +54,15 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
         if editingStyle == .Delete {
             let journal = JournalController.sharedController.journals[indexPath.row]
             // delete journal
-            JournalController.sharedController.deleteJournal(journal)
+            JournalController.sharedController.removeJournal(journal)
             // update tableview
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            // save journals
-            JournalController.sharedController.saveJournals()
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        } 
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView.editing {
             let journal = JournalController.sharedController.journals[indexPath.row]
-            previousTitle = journal.title
             
             let editAlert = UIAlertController(title: "Change Title", message: nil, preferredStyle: .Alert)
             
@@ -88,14 +76,12 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
                 // check to see if the user has altered the title
                 if textField.text != journal.title {
                     //check text value
-                    journal.title = textField.text ?? ""
+                    let newJournalTitle = textField.text ?? ""
                     
                     //set journal
-                    JournalController.sharedController.journals[indexPath.row] = journal
+                    JournalController.sharedController.updateJournal(journal, title: newJournalTitle)
                     
-                    // save journals
-                    JournalController.sharedController.saveJournals()
-                    tableView.reloadData()
+                    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 }
             })
             
@@ -146,8 +132,7 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
                 let selectedJournal = JournalController.sharedController.journals[indexPath.row]
                 
                 // pass entry and journal indexPath to EntryListTableViewController
-                entryListTableViewController.entries = selectedJournal.entries
-                entryListTableViewController.journalIndexPath = indexPath
+                entryListTableViewController.journal = selectedJournal
             }
         } else if segue.identifier == "addJournal" {
             // do nothing 
@@ -174,12 +159,10 @@ class JournalListTableViewController: UITableViewController, UITextFieldDelegate
         let saveAction = UIAlertAction(title: "Save", style: .Default, handler: { (_) -> Void in
             let textField = addAlert.textFields![0]
             
-            let newJournalTitle = textField.text ?? ""
-            
-            let newJournal = Journal(title: newJournalTitle, entries: [])
             let newIndexPath = NSIndexPath(forRow: JournalController.sharedController.journals.count, inSection: 0)
             
-            JournalController.sharedController.addJournal(newJournal)
+            let newJournalTitle = textField.text ?? ""
+            JournalController.sharedController.addJournal(newJournalTitle)
             
             self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         })

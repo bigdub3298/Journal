@@ -150,7 +150,7 @@
                     <navigationItem key="navigationItem" title="Title" id="GLk-Ac-JBv">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="IAa-Hv-e4o">
                             <connections>
-                                <segue destination="sPc-Y8-osS" kind="unwind" unwindAction="unwindtoEntryList:" id="UJg-xb-67t"/>
+                                <action selector="saveButtonTapped:" destination="vKQ-UQ-gHb" id="yyk-bR-Aav"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -162,7 +162,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvc-a1-r5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="sPc-Y8-osS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2318" y="86"/>
         </scene>

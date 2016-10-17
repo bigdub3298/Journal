@@ -10,12 +10,15 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
-    var entries: [Entry]?
-    var journalIndexPath: NSIndexPath?
+    var journal: Journal? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,10 +28,9 @@ class EntryListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let entriesSet = journal?.entries,
+            let entries = Array(entriesSet) as? [Entry] else { return 0 }
         
-        guard let entries = entries else {
-            return 0
-        }
         return entries.count
     }
 
@@ -36,11 +38,10 @@ class EntryListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("entryCell", forIndexPath: indexPath)
         
-        guard let entries = entries else {
-            cell.textLabel?.text = ""
-            cell.detailTextLabel?.text = "" 
-            return cell
-        }
+        guard let entriesSet = journal?.entries,
+            let entries = Array(entriesSet) as? [Entry] else { return cell }
+        
+        
         // grab the entry for the cell
         let entry = entries[indexPath.row]
         
@@ -48,7 +49,7 @@ class EntryListTableViewController: UITableViewController {
         cell.textLabel?.text = entry.title
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(entry.timeStamp)
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(entry.timeStamp!)
         
 
         return cell
@@ -58,16 +59,15 @@ class EntryListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete entry from singleton
-            let entry = entries![indexPath.row]
-            deleteEntry(entry)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            let selectedJournal = JournalController.sharedController.journals[journalIndexPath!.row]
-            selectedJournal.entries = entries!
-            JournalController.sharedController.saveJournals()
+            guard let entriesSet = journal?.entries,
+                let entries = Array(entriesSet) as? [Entry] else { return }
             
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let entry = entries[indexPath.row]
+            
+            JournalController.sharedController.removeEntryFromJournal(entry)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+        }
     }
     
     // MARK: - Navigation
@@ -78,46 +78,17 @@ class EntryListTableViewController: UITableViewController {
             let entryDetailViewController = segue.destinationViewController as! EntryDetailViewController
             
             // Pass along the proper entry to EntryDetailViewController
-            if let selectedCell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(selectedCell) {
-                let selectedEntry = entries![indexPath.row]
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let entriesSet = journal?.entries,
+                    let entries = Array(entriesSet) as? [Entry] else { return }
+                
+                let selectedEntry = entries[indexPath.row]
                 entryDetailViewController.entry = selectedEntry
             }
         } else if segue.identifier == "addEntry" {
-            // do nothing
+            let entryDetailViewController = segue.destinationViewController as! EntryDetailViewController
+            
+            entryDetailViewController.journal = journal
         }
     }
-    
-    @IBAction func unwindtoEntryList(sender: UIStoryboardSegue) {
-        
-        //  Get source view and entry
-        if let sourceViewController = sender.sourceViewController as? EntryDetailViewController, let entry = sourceViewController.entry {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow{
-                // Update entry
-                entries![selectedIndexPath.row] = entry
-                // Reload cell
-                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
-            } else {
-                // Create index path for new entry
-                let newIndexPath = NSIndexPath(forRow: entries!.count, inSection: 0)
-                addEntry(entry)
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-            }
-            // Save entries 
-            let selectedJournal = JournalController.sharedController.journals[journalIndexPath!.row]
-            selectedJournal.entries = entries!
-            JournalController.sharedController.saveJournals()
-        }
-    }
-    
-    // MARK: - Helper
-    func deleteEntry(entry: Entry) {
-        if let index = entries!.indexOf(entry) {
-            entries!.removeAtIndex(index)
-        }
-    }
-    
-    func addEntry(entry: Entry) {
-        entries!.append(entry)
-    }
-
 }

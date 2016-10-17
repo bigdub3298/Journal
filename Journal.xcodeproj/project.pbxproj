@@ -138,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */,
-				CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */,
 				CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */,
+				CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
