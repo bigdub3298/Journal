@@ -18,6 +18,7 @@
 		CF7E02801DB46C9F00D85ECC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E027C1DB46C9F00D85ECC /* Entry.swift */; };
 		CF7E02811DB46C9F00D85ECC /* Journal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E027D1DB46C9F00D85ECC /* Journal+CoreDataProperties.swift */; };
 		CF7E02821DB46C9F00D85ECC /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E027E1DB46C9F00D85ECC /* Journal.swift */; };
+		CF7E02841DB46FA400D85ECC /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E02831DB46FA400D85ECC /* JournalController.swift */; };
 		CF8F62281D6BEB9A009842EC /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */; };
 		CF8F622A1D6BF438009842EC /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */; };
 		CFF38F321D6D456100ADA4B7 /* JournalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */; };
@@ -49,6 +50,7 @@
 		CF7E027C1DB46C9F00D85ECC /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		CF7E027D1DB46C9F00D85ECC /* Journal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Journal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CF7E027E1DB46C9F00D85ECC /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		CF7E02831DB46FA400D85ECC /* JournalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
 		CF8F62271D6BEB9A009842EC /* EntryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
 		CF8F62291D6BF438009842EC /* EntryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		CFF38F311D6D456100ADA4B7 /* JournalListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalListTableViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		CF7E02751DB2907D00D85ECC /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF7E02831DB46FA400D85ECC /* JournalController.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				CF7E02801DB46C9F00D85ECC /* Entry.swift in Sources */,
 				CF7E02821DB46C9F00D85ECC /* Journal.swift in Sources */,
 				CF8F62281D6BEB9A009842EC /* EntryListTableViewController.swift in Sources */,
+				CF7E02841DB46FA400D85ECC /* JournalController.swift in Sources */,
 				CF7E027F1DB46C9F00D85ECC /* Entry+CoreDataProperties.swift in Sources */,
 				CF8F622A1D6BF438009842EC /* EntryDetailViewController.swift in Sources */,
 				CF7E02771DB2A5C500D85ECC /* Stack.swift in Sources */,
